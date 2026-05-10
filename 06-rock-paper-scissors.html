@@ -7,23 +7,34 @@
     <p>Rock Paper Scissors</p>
     <button onclick ="
         const randomNumber = Math.random();
-        if (randomNumber >=0 && randomNumber<1/3){
-            const computerMove = 'rock';
-        } else if (randomNumber >=1/3 && randomNumber<2/3){
-            const computerMove = 'paper';
-        } else if (randomNumber >=2/3 && randomNumber<1){
-            const computerMove = 'Scissors';
-        }     
-        ">Rock</button>
+        let computerMove = ('');
 
+        if (randomNumber >=0 && randomNumber<1/3){
+             computerMove = 'rock';
+        } else if (randomNumber >=1/3 && randomNumber<2/3){
+             computerMove = 'paper';
+        } else if (randomNumber >=2/3 && randomNumber<1){
+             computerMove = 'scissors';
+        }     
+            console.log(computerMove);
+
+        let result = ('');
+        if (computerMove == 'rock'){
+            result = 'draw';
+        } else if (computerMove =='paper'){
+            result = 'you lose'
+        } else if (computerMove =='scissors'){
+            result = 'you win'
+        } alert(`you pick rock and the computer pick ${computerMove}, ${result}`)
+        ">Rock</button>
 
     <button>Paper</button>
     <button>Scissors</button>
     
     <script>
-        console.log(computerMove)
+
     </script>
 </body>
 </html>
 
-// {}create a scope. variables in a scope on stay within that scope
+<!-- // {}create a scope. variables in a scope on stay within that scope -->
