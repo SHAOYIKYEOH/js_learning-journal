@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>objects</title>
+</head>
+<body>
+    <script>
+        /*
+        const products = {
+            name : 'socks', //property : value
+            price : 100
+        };
+        console.log(products.name) //(object.property)
+
+        //modify the value
+        products.name = 'wool socks'
+        
+        //add and delete
+        products.newProperty = true;
+        console.log(products);
+        delete products.newProperty;
+        console.log(products);
+        */
+
+        const product2 = {
+            name:'pen',
+            color:'blue',
+            price:'100',
+            'delivery-time':'1 days'
+        };
+        console.log(product2.name) //dot notation
+        console.log(product2['color']) //bracket notation -  it allows us to access to properties that dont work with dot notation, like delivery-time. cause js treats - as minus and tries to do math
+        console.log(product2['delivery-time'])
+        </script>
+</body>
+</html>
