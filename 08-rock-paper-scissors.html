@@ -22,14 +22,11 @@
         score.wins = 0;
         score.losses = 0;
         score.draws = 0;
+        localStorage.removeItem('score');
         ">Reset score</button>
     
     <script>
-        const score = {
-            wins:0,
-            losses:0,
-            draws:0
-        };
+        const score = JSON.parse(localStorage.getItem('score')) || { wins:0, losses:0, draws:0 };
 
         function playGame(playerMove){
             const computerMove = pickComputerMove();
@@ -67,6 +64,8 @@
             } else if (result === 'draw'){
                 score.draws += 1;
             }
+
+            localStorage.setItem('score',JSON.stringify(score));
 
             return alert(`you pick ${playerMove} and the computer pick ${computerMove}, ${result}! 
 Wins: ${score.wins}, Losses: ${score.losses}, Draws: ${score.draws}`);
