@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-//one of the most important features of javascript, we can have HTML elements inside Javascript. The DOM combines js and html together
-//it gives Javascript the control of the webpage    
+<head>  
     <title>Dom</title>
 </head>
 <body>
     <button>Start</button>
+    <button class="js-button">button2</button>
 
     <script>
-        document.title='Changed';
-        console.log(document.body);
+        // below HTML elements inside js (document.querySelector('button')) is an js object. and it has propeties ans method that we can use  
+        console.log(document.querySelector('button').innerHTML);
+        document.querySelector('button')
+            .innerHTML = 'Changed';
 
-        console.log(document.querySelector('button'))
+        const button2 = document.querySelector('.js-button');  
+        console.log(button2.innerHTML);
+
+
+        /* document.title='Changed';
+        console.log(document.body);
+        document.body.innerHTML= 'hello'; */
+
+        
     </script>
 </body>
 </html>
+
+
+<!--one of the most important features of javascript, we can have HTML elements inside Javascript. The DOM combines js and html together
+//it gives Javascript the control of the webpage-->  
