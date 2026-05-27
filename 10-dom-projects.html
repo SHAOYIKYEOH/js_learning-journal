@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM Projects</title>
+    <style>
+        body{
+            font-family: Arial
+        }
+        
+        .css-subscribe {
+            background-color: #1d1c1c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            margin-bottom: 30px;
+        }
+
+        .css-subscribed {
+            background-color: #F2F2F2;
+            color: #606060;
+        }
+
+        .css-cost {
+            padding: 10px 14px;
+            font-size: 14px;
+            border: 1px solid #a6a6a6;
+            border-radius: 4px;
+            outline: none;
+            width: 200px;
+        }
+
+        .css-cost:focus {
+            border-color: #e77600;
+            box-shadow: 0 0 0 3px rgba(228, 121, 17, 0.25);
+        }
+
+        .css-calculate {
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            background-color: #FF9900;
+            border: 1px solid #a88734;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .css-calculate:hover {
+            background-color: #e68a00;
+        }
+
+
+    </style>
+</head>
+<body>
+    <p>Youtube Subscribe Button</p>
+    <button onclick="subscribe();" class="subscribe css-subscribe">Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder = "Cost of order" class = 'cost css-cost' onkeydown="
+        enterKey(event)">
+    <button onclick = "calculate()" class = 'calculate css-calculate' >Calculate</button>
+    <p class = 'price'></p>
+    
+    <script>
+
+        // there are event listener and event
+
+        //window is another built in object
+        console.log(window.document)
+
+        function subscribe() {
+            subButton = document.querySelector('.subscribe')
+            if (subButton.innerHTML == 'Subscribe'){
+                subButton.innerHTML = 'Subscribed';
+                subButton.classList.add('css-subscribed');
+            } else if (subButton.innerHTML == 'Subscribed'){
+                subButton.innerHTML = 'Subscribe';
+                subButton.classList.remove('css-subscribed');
+            }} 
+
+        function calculate() {
+            const inputElement = (document.querySelector('.cost'))
+            let cost = Number(inputElement.value)
+        
+        if(cost < 40){
+            cost = cost + 10
+        }
+
+        document.querySelector('.price')
+            .innerHTML = `$${cost}`
+        }
+
+        function enterKey(event) {
+            console.log(event.key);
+            if(event.key === 'Enter'){
+            calculate();
+        }
+        }
+    </script>
+</body>
+
+
+</html>
