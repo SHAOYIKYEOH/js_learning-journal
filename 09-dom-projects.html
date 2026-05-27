@@ -7,7 +7,19 @@
     <p>Youtube Subscribe Button</p>
     <button onclick="subscribe();" class="subscribe">Subscribe</button>
 
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder = "Cost of order" class = 'cost' onkeydown="
+        enterKey(event)">
+    <button onclick = "calculate()">Calculate</button>
+    <p class = 'price'></p>
+    
     <script>
+
+        // there are event listener and event
+
+        //window is another built in object
+        console.log(window.document)
+
         function subscribe() {
             subButton = document.querySelector('.subscribe')
             if (subButton.innerHTML == 'Subscribe'){
@@ -15,6 +27,25 @@
             } else if (subButton.innerHTML == 'Subscribed'){
                 subButton.innerHTML = 'Subscribe';
             }} 
+
+        function calculate() {
+            const inputElement = (document.querySelector('.cost'))
+            let cost = Number(inputElement.value)
+        
+        if(cost < 40){
+            cost = cost + 10
+        }
+
+        document.querySelector('.price')
+            .innerHTML = `$${cost}`
+        }
+
+        function enterKey(event) {
+            console.log(event.key);
+            if(event.key === 'Enter'){
+            calculate();
+        }
+        }
     </script>
 </body>
 
