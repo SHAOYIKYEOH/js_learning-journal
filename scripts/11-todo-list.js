@@ -9,8 +9,10 @@ function renderToDoList(){ //generating html. instead of writing it we loop it t
         let toDoObject = toDoList[i];
         let name = toDoObject.name;
         let dueDate = toDoObject.dueDate;
-        let html = `<p>${name}${dueDate}<button onclick = "toDoList.splice(${i},1);
-                    renderToDoList();">Delete</button></p>`;
+        let html = `<div>${name}</div>
+                    <div>${dueDate}</div>
+                    <button onclick = "toDoList.splice(${i},1);
+                    renderToDoList();">Delete</button>`;
         toDolistHtml += html;
     }
     console.log(toDolistHtml);
