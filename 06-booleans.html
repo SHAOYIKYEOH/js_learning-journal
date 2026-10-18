@@ -62,6 +62,13 @@
     //Default Operator
     const currency = undefined || 'USD'
     console.log(currency)
+
+    let div = document.createElement('div');
+    div.innerHTML = 'a';
+
+    console.log(div);            // 打印出来是一个 DOM 对象(在控制台看起来像 <div>a</div>,但这是浏览器帮你美化显示的)
+    console.log(div.outerHTML);  // "<div>a</div>"  ← 真正的字符串
+    console.log(div + '');       // "[object HTMLDivElement]"  ← 错误的字符串转换
     </script>
 </body>
 </html>

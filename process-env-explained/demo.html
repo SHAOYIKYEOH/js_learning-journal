@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用 object 理解 process.env.PORT</title>
+  <style>
+    body { max-width: 900px; margin: 40px auto; padding: 0 20px; font-family: system-ui, sans-serif; line-height: 1.7; color: #243047; background: #f5f7fb; }
+    pre { padding: 24px; background: #172238; color: #e3edff; border-radius: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+    code { font-family: Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <h1>用 object 理解 process.env.PORT</h1>
+  <p>下面是 console.log 的运行结果，也可以按 F12 在 Console 中查看。</p>
+  <p>修改本文件 script 中的 <code>PORT: '8080'</code> 并保存，观察输出怎样变化。</p>
+  <pre><code>fakeProcess           → 外层 object
+  └─ env              → 属性，它的值是内层 object
+      └─ PORT         → 属性，它的值是字符串 '8080'</code></pre>
+  <h2>运行结果</h2>
+  <pre id="output"></pre>
+  <script>
+    // 将 console.log 的输出同步显示到页面；这段是显示工具。
+    const output = document.getElementById('output');
+    const originalLog = console.log.bind(console);
+    console.log = (...values) => {
+      originalLog(...values);
+      output.textContent += values.map(value =>
+        typeof value === 'object' && value !== null
+          ? JSON.stringify(value, null, 2)
+          : String(value)
+      ).join(' ') + '\n';
+    };
+
+    // ===== 学习示例从这里开始 =====
+// 用 Live Server 打开这个 HTML；输出同时显示在页面和浏览器 Console。
+// fakeProcess 是我们手写的普通对象，用来模拟 Node.js 的 process。
+// 它不会读取系统环境变量，也不会读取 .env 文件。
+const fakeProcess = {
+  env: {
+    PORT: '8080',
+    PORT2: '8081'
+  }
+};
+
+console.log('=== 1. 一层一层读取对象属性 ===');
+console.log('整个对象 fakeProcess：', fakeProcess);
+console.log('第一层 fakeProcess.env：', fakeProcess.env);
+console.log('第二层 fakeProcess.env.PORT：', fakeProcess.env.PORT);
+console.log('第二层 fakeProcess.env.PORT2：', fakeProcess.env.PORT2);
+console.log('PORT 的类型：', typeof fakeProcess.env.PORT);
+console.log('点号是在读取属性，这里没有调用方法。');
+console.log('console.log(...) 有括号，这是调用方法。');
+
+console.log('\n=== 2. 有 PORT：从 3000 改成 "8080" ===');
+let portNumber = 3000;
+console.log('进入 if 前：', portNumber, '类型：', typeof portNumber);
+console.log('if 条件转成布尔值：', Boolean(fakeProcess.env.PORT));
+if (fakeProcess.env.PORT) {
+  console.log('条件成立，执行 if 里面的赋值');
+  portNumber = fakeProcess.env.PORT;
+}
+console.log('执行后：', portNumber, '类型：', typeof portNumber);
+
+console.log('\n=== 3. 没有 PORT：保留 3000 ===');
+const anotherProcess = {
+  env: {}
+};
+let anotherPortNumber = 3000;
+console.log('anotherProcess.env：', anotherProcess.env);
+console.log('不存在的 PORT 属性：', anotherProcess.env.PORT);
+console.log('if 条件转成布尔值：', Boolean(anotherProcess.env.PORT));
+if (anotherProcess.env.PORT) {
+  anotherPortNumber = anotherProcess.env.PORT;
+}
+console.log('执行后：', anotherPortNumber, '类型：', typeof anotherPortNumber);
+
+console.log('\n=== 4. 浏览器和 Node.js 的区别 ===');
+console.log('浏览器没有 Node.js 内置的 process 对象。');
+console.log('所以这里用 fakeProcess 这个普通对象来学习属性访问。');
+console.log('真正的 process.env.PORT 要在 Node.js 环境中读取。');
+console.log('env 是属性名，不是 .env 文件；它的值也是一个 object。');
+// 练习：把上面 fakeProcess.env.PORT 的值改成以下内容，再运行：
+// '9000'    → 条件成立，portNumber 变成字符串 '9000'
+// ''        → 条件不成立，portNumber 保持数字 3000
+// '0'       → 非空字符串，条件成立（字符串 '0' 不是数字 0）
+
+  </script>
+</body>
+</html>

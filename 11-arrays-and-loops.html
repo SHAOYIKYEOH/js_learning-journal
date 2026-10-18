@@ -53,7 +53,7 @@
         }
         */
 
-        const numArray = [1,2,3,4,5];
+        /*const numArray = [1,2,3,4,5];
         let total = 0;
 
         for(let i=0;i<numArray.length;i++){
@@ -69,6 +69,52 @@
             doubleNumArray.push(value*2);
         }
         console.log(doubleNumArray);
+        */
+
+        const array1 = [1,2,3];
+        const array2 = array1;
+        const array3 = array1.slice();
+        array2.push(4);
+        console.log(array1);
+        console.log(array2);
+        console.log(array3);
+
+        const [firstValue, secondValue] = [1,2,3]
+        //右边 [1, 2, 3] 是一个数组，左边 [firstValue, secondValue] 按位置从数组里取值：firstValue = 1（数组第 0 位）secondValue = 2（数组第 1 位）数组里的 3 没有对应的变量去接收，会被直接忽略，不会报错。
+
+        for(let i=1; i<=10; i++){
+            if (i%3 === 0){
+                continue;
+            }
+            console.log(i);
+            if(i>=8){
+                break;
+            }
+        }
+
+        let i = 1;
+        while(i <= 10){
+            if(i % 3 === 0){
+                i++;  //make sure to have a i++ here, otherwise it will become an infinite loop
+                continue;
+            }
+            console.log(i);
+            i++;
+        }
+
+        function doubleArray(nums) {
+            const doubleNums = [];
+            for(let i=0; i<nums.length;i++){
+                const num = nums[i];
+                if (num ===0){
+                    break;
+                }
+                doubleNums.push(num*2);
+            }
+            return doubleNums;}
+
+        console.log(doubleArray([1,2,3]));    
+        console.log(doubleArray([1,2,3,5,0,3]));
     </script>
 </body>
 </html>

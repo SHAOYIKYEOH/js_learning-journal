@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Advanced Functions</title>
+</head>
+<body>
+    <script>
+
+        //in this chapter we gonna learn anonymous function, arrow function, Immediately Invoked Function Expression (IIFE)
+        /*
+        function greeting() {
+            console.log('hello');
+        }
+        greeting(); //anonymous function cannot do hoisting
+
+        const function1 = function(){
+            console.log('hello2');
+        } // we can also save a function into a variable
+        //since we can access it by using its variable name so we do not need its function name
+        // this is called anonymous function
+        console.log(function1); 
+        console.log(typeof function1);
+        function1(); //we can call the function by using its variable name too
+    
+    
+        const object1 = {
+            num:2,
+            fun: function (){
+                console.log('hello3'); //method, when we have a fucntion save inside object
+            }
+        };
+        object1.fun();
+
+        //arrow function
+        const object1 = {
+            num:2,
+            fun: ()=>{
+                console.log('hello3'); //method, when we have a fucntion save inside object
+            }
+        };
+        object1.fun();
+
+        // we can pass not only value but also function into a function
+        function display(param){
+            console.log(param);
+        }
+        display(2);
+
+        function run(param){
+            param();
+        }
+
+        //here it uses the Immediately Invoked Function Expression (IIFE) logic
+        run(function(){
+            console.log('hello4');
+        });
+        */ 
+
+        /*setTimeout(function(){
+            console.log('timeout');
+        },3000);  //setTimeOut is a builtin function
+
+        console.log('next line');  //这里console 会display next line 先，因为setTimeOut 等3秒后才实行
+        //所以setTimeout 是 Asynchronous Code - computer wont wait for a line to finish before going to the next line. 
+        // So for setTimeout computer will just set the timer and go to the next line
+
+        //相反, Synchronous Code - computer will wait for one line to finish
+    
+        setInterval(function(){
+            console.log('interval')
+        }, 3000);
+        */
+
+        [
+         'cook dinner',
+         'watch youtube',
+         'play game'   
+        ].forEach(function(value,index){
+            if(value === 'watch youtube'){
+                return ;
+            }
+            console.log(index);
+            console.log(value);
+        });
+    </script>
+</body>
+</html>

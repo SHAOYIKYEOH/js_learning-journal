@@ -12,7 +12,7 @@ function renderToDoList(){ //generating html. instead of writing it we loop it t
         let html = `<div>${name}</div>
                     <div>${dueDate}</div>
                     <button onclick = "toDoList.splice(${i},1);
-                    renderToDoList();">Delete</button>`;
+                    renderToDoList();" class = "delete-button-css">Delete</button>`;
         toDolistHtml += html;
     }
     console.log(toDolistHtml);
