@@ -1,0 +1,23 @@
+{
+  "name": "intro-to-backend",
+  "version": "1.0.0",
+  "description": "intro-to-backend",
+  "homepage": "https://github.com/SHAOYIKYEOH/js_learning-journal#readme",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/SHAOYIKYEOH/js_learning-journal/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SHAOYIKYEOH/js_learning-journal.git"
+  },
+  "license": "ISC",
+  "author": "shaoyikyeoh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
