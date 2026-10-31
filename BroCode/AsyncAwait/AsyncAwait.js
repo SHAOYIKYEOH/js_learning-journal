@@ -3,7 +3,7 @@
 function sendRequest(){
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
-            reject('something is wrong')}
+            resolve('sent')}
         ,2000);
     });
 }

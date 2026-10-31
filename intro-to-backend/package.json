@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "intro-to-backend",
   "homepage": "https://github.com/SHAOYIKYEOH/js_learning-journal#readme",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/SHAOYIKYEOH/js_learning-journal/issues"
   },
