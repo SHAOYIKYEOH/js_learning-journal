@@ -28,7 +28,7 @@ promise.then((message)=>{
 async function getMessage(){
     try{
         const message = await sendRequest();
-        console.log(typeof message);
+        console.log(message);
     }
     catch(message){
         console.log(`ERROR ${message}`);
