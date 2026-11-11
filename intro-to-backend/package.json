@@ -15,10 +15,15 @@
   "author": "shaoyikyeoh",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/src/index.js",
+    "dev": "nodemon backend/src/index.js"
   },
   "dependencies": {
+    "dotenv": "^18.0.10",
     "express": "^5.3.0",
     "mongoose": "^9.11.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
